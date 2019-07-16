@@ -1,10 +1,11 @@
 <?php 
+// ini adalah model
 defined('BASEPATH') OR exit('No direct script access allowed');
 	class M_dashboard extends CI_Model {
 		public function __construct()
 		{
 			parent::__construct();
-			$this->load->database();
+			$this->load->database(); // ini panggil library db
 		}
 
 		function getData()

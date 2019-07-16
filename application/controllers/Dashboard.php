@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
     }
     public function index()
     {
-        //$data['judul'] = '';
+        $data['judul'] = 'test';
         //$data['data_dashboard'] = $this->M_dashboard->getData();
         $this->load->view('V_dashboard');//$data);
     }

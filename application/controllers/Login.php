@@ -3,13 +3,18 @@ if (! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends CI_Controller {
     public function __construct(){
        parent:: __construct();
-        $this->load->model('M_login');      
+        $this->load->model('M_login');  
+        $this->load->library('session');    
     }
     public function index()
     {
         //data['judul'] = '';
         //$data['data_mahasiswa'] = $this->M_mahasiswa->getData();
-        $this->load->view('V_login');
+        if($this->session->nama !=''){
+            redirect('dashboard');
+        }else{
+           $this->load->view('V_login'); 
+        } 
     }
     function aksi_login(){
         $username = $this->input->post('username');

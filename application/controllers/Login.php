@@ -3,18 +3,11 @@ if (! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends CI_Controller {
     public function __construct(){
        parent:: __construct();
-        $this->load->model('M_login');  
-        $this->load->library('session');    
+        $this->load->model('M_login');    
     }
     public function index()
     {
-        //data['judul'] = '';
-        //$data['data_mahasiswa'] = $this->M_mahasiswa->getData();
-        if($this->session->nama !=''){
-            redirect('dashboard');
-        }else{
-           $this->load->view('V_login'); 
-        } 
+       $this->load->view('V_login');
     }
     function aksi_login(){
         $username = $this->input->post('username');
@@ -42,7 +35,7 @@ class Login extends CI_Controller {
  
     function logout(){
         $this->session->sess_destroy();
-        redirect(base_url('login'));
+        redirect('login', 'refresh');
     }
 }
 ?>

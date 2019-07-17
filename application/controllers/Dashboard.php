@@ -4,6 +4,9 @@ class Dashboard extends CI_Controller {
     public function __construct(){
        parent:: __construct();
         $this->load->model('M_dashboard');  
+        if($this->session->userdata('nama') == '' && $this->session->userdata('status') != 'login' ){
+           redirect('login', 'refresh');
+        }
     }
     public function index()
     {

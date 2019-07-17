@@ -1,17 +1,9 @@
-<<<<<<< HEAD
   <div id="wrapper">
-=======
-<div id="wrapper">
->>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-<<<<<<< HEAD
-        <a class="nav-link" href="index.html">
-=======
-        <a class="nav-link" href="http://localhost/codeigniter3/dashboard">
->>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
+        <a class="nav-link" href="<?php echo base_url('dashboard'); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -38,24 +30,17 @@
           <span>Charts</span></a>
       </li>
       <li class="nav-item">
-<<<<<<< HEAD
         <a class="nav-link" href="<?php echo base_url('tabel'); ?>">
-=======
-        <a class="nav-link" href="http://localhost/codeigniter3/tabel">
->>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
           <i class="fas fa-fw fa-table"></i>
           <span>Admin</span></a>
       </li>
       <li class="nav-item">
-<<<<<<< HEAD
         <a class="nav-link" href="<?php echo base_url('ktg_brg'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Kategori Barang</span></a>
-=======
-        <a class="nav-link" href="http://localhost/codeigniter3/customer">
+        <a class="nav-link" href="<?php echo base_url('customer'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Customer</span></a>
->>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
       </li>
     </ul>
 

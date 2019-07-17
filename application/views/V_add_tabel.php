@@ -2,14 +2,15 @@
 	<table>
 		<thead>
 			<th>Isian</th>
-			<th>     </th>
+			<th> : </th>
 			<th>Isi</th>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Usernmae</td>
+				<td>Username</td>
 				<td>:</td>
-				<td><input name="username" placeholder="Isikan Username" class="form-control" type="text" required=""></td>
+				<td><input name="username" placeholder="Isikan Nama" class="form-control" type="text" required=""></td>
+			</tr>
 			<tr>
 				<td>Password</td>
 				<td>:</td>

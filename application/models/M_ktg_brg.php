@@ -1,6 +1,6 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-	class M_dashboard extends CI_Model {
+	class M_ktg_brg extends CI_Model {
 		public function __construct()
 		{
 			parent::__construct();
@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function getData()
 		{
-			$query = $this->db->query("SELECT * FROM admin ORDER BY id DESC");
+			$query = $this->db->query("SELECT * FROM ktg_brg ORDER BY id DESC");
 			if ($query->num_rows() > 0) {
 				return $query->result();
 			}else {
@@ -19,30 +19,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function insertData()
 		{
 			$data = array (
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
+				'nama' => $this->input->post('nama'),
+				'detail' => $this->input->post('detail'),
 			);
-			return $this->db->insert('admin', $data);
+			return $this->db->insert('ktg_brg', $data);
 		}
 		function updateData($id)
 		{
-			$query = $this->db->query("SELECT * FROM admin WHERE id='".$id."'");
+			$query = $this->db->query("SELECT * FROM ktg_brg WHERE id='".$id."'");
 			return $query->result();
 		}
 		function simpanUpdateData()
 		{
 			$id = $this->input->post('id');
 			$data = array (
-			'username' => $this->input->post('username'),
-			'password' => md5($this->input->post('password')),
+			'nama' => $this->input->post('nama'),
+			'detail' => $this->input->post('detail'),
 			);
 			$this->db->where('id',$id);
-			$this->db->update('admin',$data);
+			$this->db->update('ktg_brg',$data);
 		}
 		function hapus_data($id)
 		{
 			$this->db->where('id', $id);
-			$this->db->delete('admin');
+			$this->db->delete('ktg_brg');
 		}
 	}
 

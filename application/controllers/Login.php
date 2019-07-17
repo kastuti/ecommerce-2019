@@ -5,9 +5,10 @@ class Login extends CI_Controller {
        parent:: __construct();
         $this->load->model('M_login');    
     }
+    
     public function index()
     {
-       $this->load->view('V_login');
+        $this->load->view('V_login');
     }
     function aksi_login(){
         $username = $this->input->post('username');
@@ -37,5 +38,4 @@ class Login extends CI_Controller {
         $this->session->sess_destroy();
         redirect('login', 'refresh');
     }
-}
 ?>

@@ -8,8 +8,10 @@ class Customer extends CI_Controller {
     public function index()
     {
         $data['judul'] = '';
+        $data['content'] = 'V_customer';
+        $data['menu'] = 'V_menu';
         $data['data_customer'] = $this->M_customer->getData();
-        $this->load->view('V_customer', $data);
+        $this->load->view('V_main', $data);
     }
     public function formAdd()
     {

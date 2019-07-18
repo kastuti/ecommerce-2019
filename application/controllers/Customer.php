@@ -7,9 +7,12 @@ class Customer extends CI_Controller {
     }
     public function index()
     {
+
+        $data['content'] = 'V_customer';
+        $data['menu'] = 'V_menu';
         $data['judul'] = '';
         $data['data_customer'] = $this->M_customer->getData();
-        $this->load->view('V_customer', $data);
+        $this->load->view('V_main', $data);//$data);
     }
     public function formAdd()
     {
@@ -26,7 +29,7 @@ class Customer extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil disimpan');
-                document.location='http://localhost/codeigniter3/customer';
+                document.location='<?php echo base_url('customer'); ?>';
             </script>
         <?php
     }
@@ -36,7 +39,7 @@ class Customer extends CI_Controller {
         ?>
             <script type="text/javascript">
             alert('Data berhasil diupdate');
-            document.location='http://localhost/codeigniter3/customer';
+            document.location='<?php echo base_url('customer'); ?>';
             </script>
         <?php
     }
@@ -46,7 +49,7 @@ class Customer extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil dihapus');
-                document.location='http://localhost/codeigniter3/customer';
+                document.location='<?php echo base_url('customer'); ?>';
             </script>
         <?php
     }     

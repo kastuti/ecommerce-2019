@@ -28,7 +28,7 @@ class Ktg_brg extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil disimpan');
-                document.location='http://localhost/codeigniter3/ktg_brg';
+                document.location='<?php echo base_url('ktg_brg'); ?>';
             </script>
         <?php
     }
@@ -38,7 +38,7 @@ class Ktg_brg extends CI_Controller {
         ?>
             <script type="text/javascript">
             alert('Data berhasil diupdate');
-            document.location='http://localhost/codeigniter3/ktg_brg';
+            document.location='<?php echo base_url('ktg_brg'); ?>';
             </script>
         <?php
     }
@@ -48,7 +48,7 @@ class Ktg_brg extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil dihapus');
-                document.location='http://localhost/codeigniter3/ktg_brg';
+                document.location='<?php echo base_url('ktg_brg'); ?>';
             </script>
         <?php
     }     

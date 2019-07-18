@@ -26,7 +26,7 @@ class Mahasiswa extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil disimpan');
-                document.location='http://localhost/codeigniter3/mahasiswa';
+                document.location='<?php echo base_url('mahasiswa'); ?>';
             </script>
         <?php
     }
@@ -36,7 +36,7 @@ class Mahasiswa extends CI_Controller {
         ?>
             <script type="text/javascript">
             alert('Data berhasil diupdate');
-            document.location='http://localhost/codeigniter3/mahasiswa';
+            document.location='<?php echo base_url('mahasiswa'); ?>';
             </script>
         <?php
     }
@@ -46,7 +46,7 @@ class Mahasiswa extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil dihapus');
-                document.location='http://localhost/codeigniter3/mahasiswa';
+                document.location='<?php echo base_url('mahasiswa'); ?>';
             </script>
         <?php
     }     

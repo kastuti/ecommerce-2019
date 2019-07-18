@@ -72,6 +72,7 @@
       </li>
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <p><?php echo $this->session->userdata('nama')?></p>
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -119,7 +120,12 @@
       <li class="nav-item">
         <a class="nav-link" href="http://localhost/codeigniter3/tabel">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Admin</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('tabel'); ?>">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Kategori Barang</span></a>
       </li>
     </ul>
 
@@ -166,6 +172,7 @@
               <div class="card-body">
                 <canvas id="myPieChart" width="100%" height="100"></canvas>
               </div>
+              
               <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
           </div>

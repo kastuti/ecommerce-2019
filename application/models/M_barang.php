@@ -9,21 +9,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function getData()
 		{
-			$query = $this->db->query("SELECT * FROM barang ORDER BY id DESC");
+			$query = $this->db->query("select b.*, kb.nama as nama_kategori
+		                    from barang as b
+		                    left join ktg_brg kb on b.id_kategori = kb.id
+		                    where b.id is not null
+		                    order by b.id desc");
 			if ($query->num_rows() > 0) {
 				return $query->result();
 			}else {
 				return array();
 			}
 		}
+		
 		function insertData()
 		{
+			$kode = $this->input->post('kode');
+			$nama = $this->input->post('nama');
+			$detail = $this->input->post('detail');
 			$data = array (
-				'kode' => $this->input->post('kode'),
-				'nama' => $this->input->post('nama'),
-				'detail' => $this->input->post('detail'),
+				'kode' => $kode,
+				'nama' => $nama,
+				'detail' => $detail
 			);
-			return $this->db->insert('barang', $data);
+			$this->db->insert('barang', $data);
+			return $this->db->insert_id();
 		}
 		function updateData($id)
 		{

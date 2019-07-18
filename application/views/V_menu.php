@@ -35,6 +35,11 @@
           <span>Admin</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('barang'); ?>">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Barang</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('ktg_brg'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Kategori Barang</span></a>
@@ -42,6 +47,7 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Customer</span></a>
       </li>
+
     </ul>
 
     <?php $this->load->view($content)?>

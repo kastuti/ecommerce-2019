@@ -2,7 +2,7 @@
 	<table>
 		<thead>
 			<th>Isi</th>
-			<th>     </th>
+			<th>    </th>
 			<th>Tambah Barang</th>
 		</thead>
 		<tbody><?php foreach ($edit_barang as $tampilEditBarang) {

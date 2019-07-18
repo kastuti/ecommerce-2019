@@ -11,19 +11,21 @@ class Customer extends CI_Controller {
         $data['content'] = 'V_customer';
         $data['menu'] = 'V_menu';
         $data['judul'] = '';
-        $data['content'] = 'V_customer';
-        $data['menu'] = 'V_menu';
         $data['data_customer'] = $this->M_customer->getData();
         $this->load->view('V_main', $data);
     }
     public function formAdd()
     {
-        $this->load->view('V_add_customer');
+        $data['content']='V_add_customer';
+        $data['menu']='V_menu';
+        $this->load->view('V_main', $data);
     } 
     public function formEdit($id)
     {
+        $data['content']='V_edit_customer';
+        $data['menu']='V_menu';
         $data['edit_customer'] = $this->M_customer->updateData($id);
-        $this->load->view('V_edit_customer',$data);
+        $this->load->view('V_main',$data);
     }
     public function tambahCustomer()
     {

@@ -25,7 +25,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost/codeigniter3/charts">
+        <a class="nav-link" href="<?php echo base_url('charts'); ?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li>
@@ -43,11 +43,12 @@
         <a class="nav-link" href="<?php echo base_url('ktg_brg'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Kategori Barang</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('customer'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Customer</span></a>
       </li>
-
     </ul>
 
     <?php $this->load->view($content)?>

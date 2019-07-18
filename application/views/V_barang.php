@@ -7,17 +7,17 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Kategori Barang</li>
+          <li class="breadcrumb-item active">Tables</li>
         </ol>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Kategori Barang</div>
+            Data Admin</div>
           <div class="card-body">
             <div class="table-responsive">
-            <a href="<?php echo base_url(). 'ktg_brg/formAdd'; ?>"<button name="">Tambah Data</button></a>
+            <a href="<?php echo base_url(). 'barang/formAdd'; ?>"<button name="">Tambah Barang</button></a>
             <br>
             <br>
             <?php echo $judul;?>
@@ -25,30 +25,24 @@
                 <thead>
                   <tr>
                     <th>No</th>
+                    <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th>Detail Barang</th>
-                    <th>Created date</th>
-                    <th>Created by</th>
-                    <th>updated date</th>
-                    <th>updated by</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $no= 1;
-                         foreach ($data_ktg_brg as $tampilKtgbrg):
+                         foreach ($data_barang as $tampilBarang):
                   ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><?= $tampilKtgbrg->nama ?></td>
-                      <td><?= $tampilKtgbrg->detail?></td>
-                      <td><?= $tampilKtgbrg->created_date?></td>
-                      <td> <p><?php echo $this->session->userdata('nama')?></p></td>
-                      <td><?= $tampilKtgbrg->updated_date?></td>
-                      <td><?= $tampilKtgbrg->updated_by?></td>
+                      <td><?= $tampilBarang->kode ?></td>
+                      <td><?= $tampilBarang->nama ?></td>
+                      <td><?= $tampilBarang->detail?></td>
                       <td>
-                      <a href="<?php echo base_url(). 'ktg_brg/formEdit/'.$tampilKtgbrg->id; ?>"><button name="">Edit</button></a>
-                      <a onclick="return confirm('Anda yakin akan menghapus data?')" href=<?php echo base_url(). 'ktg_brg/hapusTabel/'.$tampilKtgbrg->id; ?>><button name="hapus">Hapus</button></a>
+                      <a href="<?php echo base_url(). 'barang/formEdit/'.$tampilBarang->id; ?>"><button name="">Edit</button></a>
+                      <a onclick="return confirm('Anda yakin akan menghapus data?')" href=<?php echo base_url(). 'barang/hapusBarang/'.$tampilBarang->id; ?>><button name="hapus">Hapus</button></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -56,16 +50,7 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">
-            <?php
-            $tanggal= mktime(date("m"),date("d"),date("Y"));
-            echo "Tanggal : <b>".date("d-M-Y", $tanggal)."</b> ";
-            date_default_timezone_set('Asia/Jakarta');
-            $jam=date("H:i:s");
-            echo "| Pukul : <b>". $jam." "."</b>";
-            $a = date ("H");
-            ?> 
-          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
         <p class="small text-center text-muted my-5">

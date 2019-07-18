@@ -7,6 +7,8 @@ class Tabel extends CI_Controller {
     }
     public function index()
     {
+        $data['content'] = 'V_tabel';
+        $data['menu'] = 'V_menu';
         $data['judul'] = '';
         $data['content'] = 'V_tabel';
         $data['menu'] = 'V_menu';
@@ -28,7 +30,7 @@ class Tabel extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil disimpan');
-                document.location='http://localhost/codeigniter3/tabel';
+                document.location='<?php echo base_url('tabel'); ?>';
             </script>
         <?php
     }
@@ -38,7 +40,7 @@ class Tabel extends CI_Controller {
         ?>
             <script type="text/javascript">
             alert('Data berhasil diupdate');
-            document.location='http://localhost/codeigniter3/tabel';
+            document.location='<?php echo base_url('tabel'); ?>';
             </script>
         <?php
     }
@@ -48,7 +50,7 @@ class Tabel extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil dihapus');
-                document.location='http://localhost/codeigniter3/tabel';
+                document.location='<?php echo base_url('tabel'); ?>';
             </script>
         <?php
     }     

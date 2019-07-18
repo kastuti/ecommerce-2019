@@ -41,7 +41,7 @@
                       <td><?= $no++; ?></td>
                       <td><?= $tampilCustomer->nama ?></td>
                       <td><?= $tampilCustomer->created_date ?></td>
-                      <td><?= $tampilCustomer->created_by ?></td>
+                      <td> <p><?php echo $this->session->userdata('nama')?></p></td>
                       <td><?= $tampilCustomer->updated_date ?></td>
                       <td><?= $tampilCustomer->updated_by ?></td>
                       <td>

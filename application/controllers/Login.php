@@ -5,17 +5,20 @@ class Login extends CI_Controller {
        parent:: __construct();
        $this->load->library('session');
         $this->load->model('M_login');      
+
     }
     public function index()
     {
         //data['judul'] = '';
         //$data['data_mahasiswa'] = $this->M_mahasiswa->getData();
+
         $this->load->view('V_login');
         //  if ($this->session->nama =='') {
         //     $this->load->view('V_login')
         // }else($this->session->nama !=''){
         //     redirect('dashboard');
         // }
+
     }
     function aksi_login(){
         $username = $this->input->post('username');

@@ -72,21 +72,32 @@
       </li>
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< HEAD
            <p><?php echo $this->session->userdata('nama')?></p>
+=======
+>>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a>
           <div class="dropdown-divider"></div>
+<<<<<<< HEAD
           <a class="dropdown-item" href="<?php echo site_url('login/logout')?>" data-toggle="modal" data-target="#logoutModal">Logout</a>
+=======
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+>>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
         </div>
       </li>
     </ul>
 
   </nav>
 
+<<<<<<< HEAD
 <?php $this->load->view($menu)?>
+=======
+  <?php $this->load->view($menu)?>
+>>>>>>> c05121934fbf5a2f2549435c9c0b0f1afcce40d1
   <!-- /#wrapper -->
 
   <!-- Scroll to Top Button-->

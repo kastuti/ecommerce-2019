@@ -7,9 +7,11 @@ class Charts extends CI_Controller {
     }
     public function index()
     {
+        $data ['content'] = 'V_charts';
+        $data ['menu'] = 'V_menu';
         //$data['judul'] = '';
-        //$data['data_dashboard'] = $this->M_dashboard->getData();
-        $this->load->view('V_charts');//$data);
+        $data['data_charts'] = $this->M_charts->getData();
+        $this->load->view('V_main', $data);//$data);
     }
 }
 ?>

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Charts</title>
+  <title>SB Admin - Tables</title>
 
   <!-- Custom fonts for this template-->
   <link href="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -72,7 +72,6 @@
       </li>
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <p><?php echo $this->session->userdata('nama')?></p>
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -91,7 +90,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost/codeigniter3/dashboard">
+        <a class="nav-link" href="<?php echo base_url('dashboard'); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -112,24 +111,25 @@
           <a class="dropdown-item" href="blank.html">Blank Page</a>
         </div>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="charts.html">
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost/codeigniter3/charts">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="http://localhost/codeigniter3/tabel">
           <i class="fas fa-fw fa-table"></i>
           <span>Admin</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('tabel'); ?>">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost/codeigniter3/customer">
           <i class="fas fa-fw fa-table"></i>
-          <span>Kategori Barang</span></a>
+          <span>Customer</span></a>
       </li>
     </ul>
 
     <div id="content-wrapper">
+
       <div class="container-fluid">
 
         <!-- Breadcrumbs-->
@@ -137,48 +137,58 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Charts</li>
+          <li class="breadcrumb-item active">Tables</li>
         </ol>
 
-        <!-- Area Chart Example-->
+        <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Area Chart Example</div>
+            <i class="fas fa-table"></i>
+            Data Customer</div>
           <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            <div class="table-responsive">
+            <a href="<?php echo base_url(). 'customer/formAdd'; ?>"<button name="">Tambah Data</button></a>
+            <br>
+            <br>
+            <?php echo $judul;?>
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Created Date</th>
+                    <th>Created By</th>
+                    <th>Updated Date</th>
+                    <th>Updated By</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $no= 1;
+                         foreach ($data_customer as $tampilCustomer):
+                  ?>
+                    <tr>
+                      <td><?= $no++; ?></td>
+                      <td><?= $tampilCustomer->nama ?></td>
+                      <td><?= $tampilCustomer->created_date ?></td>
+                      <td><?= $tampilCustomer->created_by ?></td>
+                      <td><?= $tampilCustomer->updated_date ?></td>
+                      <td><?= $tampilCustomer->updated_by ?></td>
+                      <td>
+                      <a href="<?php echo base_url(). 'customer/formEdit/'.$tampilCustomer->id; ?>"><button name="">Edit</button></a>
+                      <a onclick="return confirm('Anda yakin akan menghapus data?')" href=<?php echo base_url(). 'customer/hapusCustomer/'.$tampilCustomer->id; ?>><button name="hapus">Hapus</button></a>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="card mb-3">
-              <div class="card-header">
-                <i class="fas fa-chart-bar"></i>
-                Bar Chart Example</div>
-              <div class="card-body">
-                <canvas id="myBarChart" width="100%" height="50"></canvas>
-              </div>
-              <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card mb-3">
-              <div class="card-header">
-                <i class="fas fa-chart-pie"></i>
-                Pie Chart Example</div>
-              <div class="card-body">
-                <canvas id="myPieChart" width="100%" height="100"></canvas>
-              </div>
-              
-              <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-          </div>
-        </div>
-
         <p class="small text-center text-muted my-5">
-          <em>More chart examples coming soon...</em>
+          <em>More table examples coming soon...</em>
         </p>
 
       </div>
@@ -194,3 +204,52 @@
       </footer>
 
     </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="http://localhost/codeigniter3/login">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/vendor/jquery/jquery.min.js"></script>
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="http://localhost/codeigniter3/assets/theme/startbootstrap-sb-admin-gh-pages/js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>

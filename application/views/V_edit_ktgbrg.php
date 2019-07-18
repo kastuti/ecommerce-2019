@@ -5,7 +5,7 @@
 			<th>:</th>
 			<th>Isi</th>
 		</thead>
-		<tbody><?php foreach ($editTabel as $tampilEditKtgbrg) {
+		<tbody><?php foreach ($edit_ktg_brg as $tampilEditKtgbrg) {
 	?>
 			<input name="id" type="hidden" value="<?= $tampilEditKtgbrg->id; ?>">
 			<tr>

@@ -29,8 +29,8 @@
                     <th>Detail Barang</th>
                     <th>Created date</th>
                     <th>Created by</th>
-                    <th>update date</th>
-                    <th>update by</th>
+                    <th>updated date</th>
+                    <th>updated by</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -44,8 +44,8 @@
                       <td><?= $tampilKtgbrg->detail?></td>
                       <td><?= $tampilKtgbrg->created_date?></td>
                       <td> <p><?php echo $this->session->userdata('nama')?></p></td>
-                      <td><?= $tampilKtgbrg->update_date?></td>
-                      <td><?= $tampilKtgbrg->update_by?></td>
+                      <td><?= $tampilKtgbrg->updated_date?></td>
+                      <td><?= $tampilKtgbrg->updated_by?></td>
                       <td>
                       <a href="<?php echo base_url(). 'ktg_brg/formEdit/'.$tampilKtgbrg->id; ?>"><button name="">Edit</button></a>
                       <a onclick="return confirm('Anda yakin akan menghapus data?')" href=<?php echo base_url(). 'ktg_brg/hapusTabel/'.$tampilKtgbrg->id; ?>><button name="hapus">Hapus</button></a>

@@ -1,9 +1,9 @@
 <form action="<?php echo base_url().'barang/editBarang'; ?>" role="form" id="form" class="form-horizontal" method="POST">
 	<table>
 		<thead>
-			<th>Isian</th>
-			<th>     </th>
 			<th>Isi</th>
+			<th>     </th>
+			<th>Tambah Barang</th>
 		</thead>
 		<tbody><?php foreach ($edit_barang as $tampilEditBarang) {
 	?>

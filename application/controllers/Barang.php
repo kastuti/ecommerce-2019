@@ -20,12 +20,16 @@ class Barang extends CI_Controller {
     }
     public function formAdd()
     {
-        $this->load->view('V_add_barang');
+        $data['content'] = 'V_add_barang';
+        $data['menu'] = 'V_menu';
+        $this->load->view('V_main', $data);
     } 
     public function formEdit($id)
     {
+        $data['content'] = 'V_edit_barang';
+        $data['menu'] = 'V_menu';
         $data['edit_barang'] = $this->M_barang->updateData($id);
-        $this->load->view('V_edit_barang',$data);
+        $this->load->view('V_main',$data);
     }
     public function tambahBarang()
     {

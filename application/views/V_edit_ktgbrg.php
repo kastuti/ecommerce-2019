@@ -1,4 +1,21 @@
 <form action="<?php echo base_url().'ktg_brg/editTabel'; ?>" role="form" id="form" class="form-horizontal" method="POST">
+	<style type="text/css">
+    .container{
+	border:20px solid rgba(0,0,0,.5);
+	width: 400px;
+	height: 200px;
+	background: #00FFFF;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -140px;
+	margin-left: -240px;
+	text-align: center;
+	padding:40px;
+	display: table;
+}
+	</style>
+<div class="container">
 	<table>
 		<thead>
 			<th>Isian</th>
@@ -28,3 +45,4 @@
 			</tbody>
 		</table>
 	</form>
+</div>

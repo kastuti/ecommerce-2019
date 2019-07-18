@@ -43,7 +43,7 @@
                       <td><?= $tampilKtgbrg->nama ?></td>
                       <td><?= $tampilKtgbrg->detail?></td>
                       <td><?= $tampilKtgbrg->created_date?></td>
-                      <td> <p><?php echo $this->session->userdata('nama')?></p></td>
+                      <td><?= $tampilKtgbrg->created_by?></td>
                       <td><?= $tampilKtgbrg->updated_date?></td>
                       <td><?= $tampilKtgbrg->updated_by?></td>
                       <td>

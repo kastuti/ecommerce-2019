@@ -15,12 +15,16 @@ class Ktg_brg extends CI_Controller {
     }
     public function formAdd()
     {
-        $this->load->view('V_add_ktgbrg');
+        $data['content'] = 'V_add_ktgbrg';
+        $data['menu'] = 'V_menu';
+        $this->load->view('V_main', $data);
     } 
     public function formEdit($id)
     {
+        $data['content'] = 'V_edit_ktgbrg';
+        $data['menu'] = 'V_menu';
         $data['edit_ktg_brg'] = $this->M_ktg_brg->updateData($id);
-        $this->load->view('V_edit_ktgbrg',$data);
+        $this->load->view('V_main',$data);
     }
     public function tambahTabel()
     {

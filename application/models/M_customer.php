@@ -18,10 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		function insertData()
 		{
+			$session = $this->session->userdata('nama');
 			$date = date('Y-m-d H:i:s');
 			$data = array (
 				'nama' => $this->input->post('nama'),
-				'created_date' => $date
+				'created_date' => $date,
+				'created_by' => $session
 				);
 			return $this->db->insert('customer', $data);
 		}
@@ -32,9 +34,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		function simpanUpdateData()
 		{
+			$session = $this->session->userdata('nama');
+			$date = date('Y-m-d H:i:s');
 			$id = $this->input->post('id');
 			$data = array (
 			'nama' => $this->input->post('nama'),
+			'updated_date' => $date,
+			'updated_by' => $session
 			);
 			$this->db->where('id',$id);
 			$this->db->update('customer',$data);

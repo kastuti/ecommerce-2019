@@ -20,7 +20,7 @@
 		<thead>
 			<th>Isian</th>
 			<th>:</th>
-			<th>Isi</th>
+			<th>Edit Data Kategori Barang</th>
 		</thead>
 		<tbody><?php foreach ($edit_ktg_brg as $tampilEditKtgbrg) {
 	?>

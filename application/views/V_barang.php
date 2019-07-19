@@ -14,10 +14,10 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Admin</div>
+            Data Barang</div>
           <div class="card-body">
             <div class="table-responsive">
-            <a href="<?php echo base_url(). 'barang/formAdd'; ?>"<button name="">Tambah Barang</button></a>
+            <a href="<?php echo base_url(). 'barang/formAdd'; ?>"<button name="">Tambah Data</button></a>
             <br>
             <br>
             <?php echo $judul;?>

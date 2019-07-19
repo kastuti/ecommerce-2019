@@ -21,7 +21,7 @@
 		<thead>
 			<th>Isian</th>
 			<th>  </th>
-			<th>Tambah Barang</th>
+			<th>Tambah Data Kategori Barang</th>
 		</thead>
 		<tbody>
 			<tr>

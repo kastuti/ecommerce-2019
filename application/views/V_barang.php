@@ -7,7 +7,7 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Tables</li>
+          <li class="breadcrumb-item active">Barang</li>
         </ol>
 
         <!-- DataTables Example -->

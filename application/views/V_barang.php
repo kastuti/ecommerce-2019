@@ -7,17 +7,17 @@
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Tables</li>
+          <li class="breadcrumb-item active">Barang</li>
         </ol>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Admin</div>
+            Data Barang</div>
           <div class="card-body">
             <div class="table-responsive">
-            <a href="<?php echo base_url(). 'barang/formAdd'; ?>"<button name="">Tambah Barang</button></a>
+            <a href="<?php echo base_url(). 'barang/formAdd'; ?>"<button name="">Tambah Data</button></a>
             <br>
             <br>
             <?php echo $judul;?>

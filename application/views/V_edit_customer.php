@@ -21,7 +21,7 @@
 		<thead>
 			<th>Isian</th>
 			<th>     </th>
-			<th>Isi</th>
+			<th>Edit Data Customer</th>
 		</thead>
 		<tbody><?php foreach ($edit_customer as $tampilEditCustomer) {
 	?>

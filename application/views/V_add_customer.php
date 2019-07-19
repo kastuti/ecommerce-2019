@@ -21,7 +21,7 @@
 		<thead>
 			<th>Isian</th>
 			<th>     </th>
-			<th>Isi</th>
+			<th>Tambah Data Customer</th>
 		</thead>
 		<tbody>
 			<tr>

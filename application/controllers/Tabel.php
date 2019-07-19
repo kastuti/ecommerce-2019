@@ -17,12 +17,16 @@ class Tabel extends CI_Controller {
     }
     public function formAdd()
     {
-        $this->load->view('V_add_tabel');
+        $data['content'] = 'V_add_tabel';
+        $data['menu'] = 'V_menu';
+        $this->load->view('V_main', $data);
     } 
     public function formEdit($id)
     {
+        $data['content'] = 'V_edit_tabel';
+        $data['menu'] = 'V_menu';
         $data['edit_tabel'] = $this->M_tabel->updateData($id);
-        $this->load->view('V_edit_tabel',$data);
+        $this->load->view('V_main',$data);
     }
     public function tambahTabel()
     {

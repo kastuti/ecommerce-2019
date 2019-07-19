@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = array (
 				'nama' => $this->input->post('nama'),
 				'detail' => $this->input->post('detail'),
-				'created_date' => $date,
+				'created_date' => $date, 
 				'created_by' => $session
 			);
 			return $this->db->insert('ktg_brg', $data);

@@ -31,7 +31,7 @@
 			<tr>
 				<td>Nama Barang</td>
 				<td>:</td>
-				<td><input name="nama" placeholder="Isikan Nama Barang" class="form-control" type="text" required=""></td>
+				<td><input name="nama" placeholder="Isikan Nama Barang" class="form-control" type="text" requires=""></td>
 			</tr>
 			<tr>
 				<td>Detail</td>
@@ -47,4 +47,4 @@
 		</tbody>
 	</table>
 </form>
-</div
+</div>

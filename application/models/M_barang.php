@@ -23,13 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		function insertData()
 		{
+			$date = date('Y-m-d H:i:s'); //tampilan created_date
 			$kode = $this->input->post('kode');
 			$nama = $this->input->post('nama');
 			$detail = $this->input->post('detail');
 			$data = array (
 				'kode' => $kode,
 				'nama' => $nama,
-				'detail' => $detail
+				'detail' => $detail,
+				'created_date' => $date
 			);
 			$this->db->insert('barang', $data);
 			return $this->db->insert_id();
@@ -38,14 +40,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$query = $this->db->query("SELECT * FROM barang WHERE id='".$id."'");
 			return $query->result();
+			
 		}
 		function simpanUpdateData()
 		{
+			$date = date('Y-m-d H:i:s');
 			$id = $this->input->post('id');
 			$data = array (
 			'kode' => $this->input->post('kode'),
 			'nama' => $this->input->post('nama'),
 			'detail' => $this->input->post('detail'),
+			'created_date' => $date
 			);
 			$this->db->where('id',$id);
 			$this->db->update('barang',$data);

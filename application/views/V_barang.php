@@ -29,6 +29,7 @@
                     <th>Nama Barang</th>
                     <th>Detail Barang</th>
                     <th>Aksi</th>
+                    <th>Created_Date</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,7 @@
                       <a href="<?php echo base_url(). 'barang/formEdit/'.$tampilBarang->id; ?>"><button name="">Edit</button></a>
                       <a onclick="return confirm('Anda yakin akan menghapus data?')" href=<?php echo base_url(). 'barang/hapusBarang/'.$tampilBarang->id; ?>><button name="hapus">Hapus</button></a>
                       </td>
+                      <td><?= $tampilBarang->created_date?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

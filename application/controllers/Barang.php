@@ -37,7 +37,7 @@ class Barang extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil disimpan');
-                document.location='http://localhost/codeigniter3/barang';
+                document.location='<?php echo base_url('barang');?>';
             </script>
         <?php
     }
@@ -47,7 +47,7 @@ class Barang extends CI_Controller {
         ?>
             <script type="text/javascript">
             alert('Data berhasil diupdate');
-            document.location='http://localhost/codeigniter3/barang';
+            document.location='<?php echo base_url('barang');?>';
             </script>
         <?php
     }
@@ -57,7 +57,7 @@ class Barang extends CI_Controller {
         ?>
             <script type="text/javascript">
                 alert('Data berhasil dihapus');
-                document.location='http://localhost/codeigniter3/barang';
+                document.location='<?php echo base_url('barang');?>';
             </script>
         <?php
     }     

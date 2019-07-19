@@ -12,16 +12,16 @@
 				<tr>
 				<td>Kode</td>
 				<td>:</td>
-				<td><input name="kode" placeholder="Isikan Kode Barang" class="form-cotrol" type="text" requires=""></td>
+				<td><input name="kode" placeholder="Isikan Kode Barang" class="form-cotrol" type="text" required=""> value="<?=$tampilEditBarang->kode?>"></td>
 			</tr>
 				<td>Nama</td>
 				<td>:</td>
-				<td><input name="nama" placeholder="Isikan Nama Barang" class="form-control" type="text" required="" value="<?= $tampilEditBarang->nama;?>"></td>
+				<td><input name="nama" placeholder="Isikan Nama Barang" class="form-control" type="text" required=""> value="<?= $tampilEditBarang->nama;?>"></td>
 			</tr>
 			<tr>
 				<td>Detail</td>
 				<td>:</td>
-				<td><input name="detail" placeholder="Isikan Detail Barang" class="form-control" type="text" required="" value="<?= $tampilEditBarang->detail; ?>"></td>
+				<td><input name="detail" placeholder="Isikan Detail Barang" class="form-control" type="text" required=""> value="<?= $tampilEditBarang->detail; ?>"></td>
 			</tr>
 				<?php } ?>
 				<tr>

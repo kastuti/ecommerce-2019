@@ -18,9 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		function insertData()
 		{
+			$date = date('Y-m-d H:i:s');
 			$data = array (
 				'nama' => $this->input->post('nama'),
 				'detail' => $this->input->post('detail'),
+				'created_date' => $date
 			);
 			return $this->db->insert('ktg_brg', $data);
 		}

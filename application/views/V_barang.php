@@ -28,8 +28,11 @@
                     <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th>Detail Barang</th>
-                    <th>Aksi</th>
                     <th>Created_Date</th>
+                    <th>Created_By</th>
+                    <th>Updated_Date</th>
+                    <th>Upadated_By</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,11 +44,14 @@
                       <td><?= $tampilBarang->kode ?></td>
                       <td><?= $tampilBarang->nama ?></td>
                       <td><?= $tampilBarang->detail?></td>
+                      <td><?= $tampilBarang->created_date?></td>
+                      <td><?= $tampilBarang->created_by?></td>
+                      <td><?= $tampilBarang->updated_date?></td>
+                      <td><?= $tampilBarang->updated_by?></td>
                       <td>
                       <a href="<?php echo base_url(). 'barang/formEdit/'.$tampilBarang->id; ?>"><button name="">Edit</button></a>
                       <a onclick="return confirm('Anda yakin akan menghapus data?')" href=<?php echo base_url(). 'barang/hapusBarang/'.$tampilBarang->id; ?>><button name="hapus">Hapus</button></a>
                       </td>
-                      <td><?= $tampilBarang->created_date?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

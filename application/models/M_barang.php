@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		function insertData()
 		{
-			$date = date('Y-m-d H:i:s'); //tampilan created_date
+			$session = $this->session->userdata('nama');
+			$date = date('Y-m-d H:i:s');
 			$kode = $this->input->post('kode');
 			$nama = $this->input->post('nama');
 			$detail = $this->input->post('detail');
@@ -31,7 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'kode' => $kode,
 				'nama' => $nama,
 				'detail' => $detail,
-				'created_date' => $date
+				'created_date' => $date,
+				'created_by' => $session
 			);
 			$this->db->insert('barang', $data);
 			return $this->db->insert_id();
@@ -44,13 +46,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		function simpanUpdateData()
 		{
+			$session = $this->session->userdata('nama');
 			$date = date('Y-m-d H:i:s');
 			$id = $this->input->post('id');
 			$data = array (
 			'kode' => $this->input->post('kode'),
 			'nama' => $this->input->post('nama'),
 			'detail' => $this->input->post('detail'),
-			'created_date' => $date
+			'updated_date' => $date,
+			'updated_by' => $session
 			);
 			$this->db->where('id',$id);
 			$this->db->update('barang',$data);

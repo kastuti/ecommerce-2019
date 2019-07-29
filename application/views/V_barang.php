@@ -58,7 +58,15 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <div class="card-footer small text-muted">
+            <?php
+            $tanggal= mktime(date("m"),date("d"),date("Y"));
+            echo "Tanggal : <b>".date("d-M-Y", $tanggal)."</b> ";
+            date_default_timezone_set('Asia/Jakarta');
+            $jam=date("H:i:s");
+            echo "| Pukul : <b>". $jam." "."</b>";
+            $a = date ("H");
+            ?> 
         </div>
 
         <p class="small text-center text-muted my-5">

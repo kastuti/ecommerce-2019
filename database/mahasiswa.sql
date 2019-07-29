@@ -74,9 +74,13 @@ ALTER SEQUENCE public.admin_id_seq OWNED BY public.admin.id;
 CREATE TABLE public.barang (
     id integer NOT NULL,
     id_kategori numeric(200,0),
-    kode numeric(200,0),
     nama character varying(255),
-    detail character varying(255)
+    detail character varying(255),
+    kode character varying(255),
+    created_by character varying(255),
+    updated_date timestamp with time zone,
+    updated_by character varying(255),
+    created_date timestamp with time zone
 );
 
 
@@ -110,10 +114,10 @@ ALTER SEQUENCE public.barang_id_seq OWNED BY public.barang.id;
 CREATE TABLE public.customer (
     id integer NOT NULL,
     nama character varying(225),
-    created_date date,
+    created_date timestamp with time zone,
     created_by character varying(225),
-    updated_date timestamp without time zone,
-    updated_by time with time zone
+    updated_date timestamp with time zone,
+    updated_by character varying(255)
 );
 
 
@@ -141,6 +145,45 @@ ALTER SEQUENCE public.customer_id_seq OWNED BY public.customer.id;
 
 
 --
+-- Name: keys; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.keys (
+    id integer NOT NULL,
+    user_id numeric(50,0) NOT NULL,
+    key character varying(40) NOT NULL,
+    level numeric(30,0) NOT NULL,
+    ignore_limits character varying(1) DEFAULT '0'::character varying NOT NULL,
+    is_private_key character varying(1) DEFAULT '0'::character varying NOT NULL,
+    ip_addresses text,
+    date_created character varying(252) NOT NULL
+);
+
+
+ALTER TABLE public.keys OWNER TO postgres;
+
+--
+-- Name: keys_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.keys_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.keys_id_seq OWNER TO postgres;
+
+--
+-- Name: keys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.keys_id_seq OWNED BY public.keys.id;
+
+
+--
 -- Name: ktg_brg; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -148,10 +191,10 @@ CREATE TABLE public.ktg_brg (
     id integer NOT NULL,
     nama character varying(255) NOT NULL,
     detail character varying(255) NOT NULL,
-    created_date date,
     created_by character varying(255),
     updated_by character varying(255),
-    updated_date timestamp without time zone
+    created_date timestamp with time zone,
+    updated_date timestamp with time zone
 );
 
 
@@ -203,6 +246,13 @@ ALTER TABLE ONLY public.customer ALTER COLUMN id SET DEFAULT nextval('public.cus
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
+ALTER TABLE ONLY public.keys ALTER COLUMN id SET DEFAULT nextval('public.keys_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
 ALTER TABLE ONLY public.ktg_brg ALTER COLUMN id SET DEFAULT nextval('public.ktg_brg_id_seq'::regclass);
 
 
@@ -212,6 +262,9 @@ ALTER TABLE ONLY public.ktg_brg ALTER COLUMN id SET DEFAULT nextval('public.ktg_
 
 COPY public.admin (id, username, password) FROM stdin;
 1	admin	21232f297a57a5a743894a0e4a801fc3
+7	devia	gendut
+8	devia	gendut
+9	abcd	abcd
 \.
 
 
@@ -219,14 +272,16 @@ COPY public.admin (id, username, password) FROM stdin;
 -- Name: admin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.admin_id_seq', 4, true);
+SELECT pg_catalog.setval('public.admin_id_seq', 9, true);
 
 
 --
 -- Data for Name: barang; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.barang (id, id_kategori, kode, nama, detail) FROM stdin;
+COPY public.barang (id, id_kategori, nama, detail, kode, created_by, updated_date, updated_by, created_date) FROM stdin;
+8	\N	devia	jelek bgt	test1	admin	2019-07-20 04:37:24-07	admin	2019-07-20 00:00:00-07
+7	\N	devia	gendut	test01	\N	2019-07-20 04:42:03-07	admin	2019-07-19 00:00:00-07
 \.
 
 
@@ -234,7 +289,7 @@ COPY public.barang (id, id_kategori, kode, nama, detail) FROM stdin;
 -- Name: barang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.barang_id_seq', 1, false);
+SELECT pg_catalog.setval('public.barang_id_seq', 8, true);
 
 
 --
@@ -242,7 +297,8 @@ SELECT pg_catalog.setval('public.barang_id_seq', 1, false);
 --
 
 COPY public.customer (id, nama, created_date, created_by, updated_date, updated_by) FROM stdin;
-1	DDD	\N	\N	\N	\N
+2	devia	2019-07-19 00:00:00-07	\N	\N	\N
+3	devia01	2019-07-20 05:15:54-07	admin	2019-07-20 05:19:11-07	admin
 \.
 
 
@@ -250,15 +306,31 @@ COPY public.customer (id, nama, created_date, created_by, updated_date, updated_
 -- Name: customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.customer_id_seq', 1, true);
+SELECT pg_catalog.setval('public.customer_id_seq', 3, true);
+
+
+--
+-- Data for Name: keys; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.keys (id, user_id, key, level, ignore_limits, is_private_key, ip_addresses, date_created) FROM stdin;
+\.
+
+
+--
+-- Name: keys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.keys_id_seq', 1, false);
 
 
 --
 -- Data for Name: ktg_brg; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.ktg_brg (id, nama, detail, created_date, created_by, updated_by, updated_date) FROM stdin;
-8	gamis01	100.000	\N	\N	\N	\N
+COPY public.ktg_brg (id, nama, detail, created_by, updated_by, created_date, updated_date) FROM stdin;
+22	devia01	jelek bgt	admin	admin	2019-07-20 04:50:58-07	2019-07-20 04:53:47-07
+23	devia	jelek bgt	admin	\N	2019-07-20 05:12:54-07	\N
 \.
 
 
@@ -266,7 +338,7 @@ COPY public.ktg_brg (id, nama, detail, created_date, created_by, updated_by, upd
 -- Name: ktg_brg_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ktg_brg_id_seq', 10, true);
+SELECT pg_catalog.setval('public.ktg_brg_id_seq', 25, true);
 
 
 --
@@ -291,6 +363,14 @@ ALTER TABLE ONLY public.barang
 
 ALTER TABLE ONLY public.customer
     ADD CONSTRAINT customer_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: keys_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.keys
+    ADD CONSTRAINT keys_pkey PRIMARY KEY (id);
 
 
 --

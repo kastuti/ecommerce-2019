@@ -25,7 +25,7 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form action="login/aksi_login" method="POST">
+        <form action="<?php echo base_url();?>login/api_aksi_login" method="POST">
           <div class="form-group">
             <div class="form-label-group">
               <input type="text" id="inputName" class="form-control" placeholder="Username" required="required" autofocus="autofocus" name="username">
